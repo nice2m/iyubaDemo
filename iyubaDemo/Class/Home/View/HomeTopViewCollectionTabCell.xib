@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HomeTopViewCollectionTabCell" id="gTV-IL-0wX" customClass="HomeTopViewCollectionTabCell">
+            <rect key="frame" x="0.0" y="0.0" width="80" height="40"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="80" height="40"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G5F-4X-k3t" userLabel="lineView">
+                        <rect key="frame" x="79" y="0.0" width="1" height="40"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="1" id="bgD-N2-gCV"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPB-GX-S8O">
+                        <rect key="frame" x="0.0" y="0.0" width="79" height="40"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="XPB-GX-S8O" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="138-Dr-qeK"/>
+                <constraint firstAttribute="bottom" secondItem="XPB-GX-S8O" secondAttribute="bottom" id="Usd-MS-9ef"/>
+                <constraint firstAttribute="trailing" secondItem="G5F-4X-k3t" secondAttribute="trailing" id="bJ0-Py-PGQ"/>
+                <constraint firstItem="XPB-GX-S8O" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="dm9-8E-PRY"/>
+                <constraint firstItem="XPB-GX-S8O" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="drH-5I-avW"/>
+                <constraint firstItem="XPB-GX-S8O" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="kfB-qc-kPN"/>
+                <constraint firstItem="G5F-4X-k3t" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="lXL-87-FlP"/>
+                <constraint firstItem="G5F-4X-k3t" firstAttribute="leading" secondItem="XPB-GX-S8O" secondAttribute="trailing" id="xJK-0K-GJ1"/>
+                <constraint firstAttribute="bottom" secondItem="G5F-4X-k3t" secondAttribute="bottom" id="zPr-xy-rxi"/>
+            </constraints>
+            <connections>
+                <outlet property="titleLabel" destination="XPB-GX-S8O" id="oDa-Ki-yXA"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+</document>
