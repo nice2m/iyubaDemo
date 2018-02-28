@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		203C7490113D97EF078D418C /* libPods-iyubaDemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DAC422CF13338D0ADF38C7F8 /* libPods-iyubaDemoTests.a */; };
 		37CA8BEA8ED50B3A13C5FCE5 /* libPods-iyubaDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1CF6534DF1BB054D6C78551 /* libPods-iyubaDemo.a */; };
+		5FB48A3E2046FDFB00DE29E7 /* HomeIndexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB48A3C2046FDFB00DE29E7 /* HomeIndexCell.m */; };
+		5FB48A3F2046FDFB00DE29E7 /* HomeIndexCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FB48A3D2046FDFB00DE29E7 /* HomeIndexCell.xib */; };
+		5FB48A422047062500DE29E7 /* HomeScrollPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB48A412047062500DE29E7 /* HomeScrollPageView.m */; };
 		B3AC154EC2F07D96DDBE1439 /* libPods-iyubaDemoUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D18570C9D6C8B2321E0D3D62 /* libPods-iyubaDemoUITests.a */; };
 		BBF5279B20463A8D00F7CDDC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBF5279920463A8D00F7CDDC /* Main.storyboard */; };
 		BBF5279D20463A8D00F7CDDC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBF5279C20463A8D00F7CDDC /* Assets.xcassets */; };
@@ -47,6 +50,11 @@
 /* Begin PBXFileReference section */
 		43FABFE637D2AC602F1EB50B /* Pods-iyubaDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iyubaDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iyubaDemoTests/Pods-iyubaDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		51AC33C6E416C3F297DBBC5A /* Pods-iyubaDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iyubaDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iyubaDemoTests/Pods-iyubaDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5FB48A3B2046FDFB00DE29E7 /* HomeIndexCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeIndexCell.h; sourceTree = "<group>"; };
+		5FB48A3C2046FDFB00DE29E7 /* HomeIndexCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeIndexCell.m; sourceTree = "<group>"; };
+		5FB48A3D2046FDFB00DE29E7 /* HomeIndexCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeIndexCell.xib; sourceTree = "<group>"; };
+		5FB48A402047062500DE29E7 /* HomeScrollPageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeScrollPageView.h; sourceTree = "<group>"; };
+		5FB48A412047062500DE29E7 /* HomeScrollPageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeScrollPageView.m; sourceTree = "<group>"; };
 		9C6BC6234801F59E9A671C63 /* Pods-iyubaDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iyubaDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iyubaDemo/Pods-iyubaDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		AD3A142A20D925B2F655AF0A /* Pods-iyubaDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iyubaDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-iyubaDemo/Pods-iyubaDemo.release.xcconfig"; sourceTree = "<group>"; };
 		B1CF6534DF1BB054D6C78551 /* libPods-iyubaDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iyubaDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -273,6 +281,11 @@
 				BBF527E020469C0900F7CDDC /* HomeTopViewCollectionTabCell.h */,
 				BBF527E120469C0900F7CDDC /* HomeTopViewCollectionTabCell.m */,
 				BBF527E220469C0900F7CDDC /* HomeTopViewCollectionTabCell.xib */,
+				5FB48A3B2046FDFB00DE29E7 /* HomeIndexCell.h */,
+				5FB48A3C2046FDFB00DE29E7 /* HomeIndexCell.m */,
+				5FB48A3D2046FDFB00DE29E7 /* HomeIndexCell.xib */,
+				5FB48A402047062500DE29E7 /* HomeScrollPageView.h */,
+				5FB48A412047062500DE29E7 /* HomeScrollPageView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -393,6 +406,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBF527A020463A8D00F7CDDC /* LaunchScreen.storyboard in Resources */,
+				5FB48A3F2046FDFB00DE29E7 /* HomeIndexCell.xib in Resources */,
 				BBF5279D20463A8D00F7CDDC /* Assets.xcassets in Resources */,
 				BBF527E420469C0900F7CDDC /* HomeTopViewCollectionTabCell.xib in Resources */,
 				BBF5279B20463A8D00F7CDDC /* Main.storyboard in Resources */,
@@ -572,9 +586,11 @@
 				BBF527D220465A9A00F7CDDC /* AppDelegate.m in Sources */,
 				BBF527E720469D0400F7CDDC /* HomeTopViewCollectionTabCellModel.m in Sources */,
 				BBF527E320469C0900F7CDDC /* HomeTopViewCollectionTabCell.m in Sources */,
+				5FB48A3E2046FDFB00DE29E7 /* HomeIndexCell.m in Sources */,
 				BBF527DF204698DB00F7CDDC /* HomeTopView.m in Sources */,
 				BBF527A320463A8D00F7CDDC /* main.m in Sources */,
 				BBF527DC204697C900F7CDDC /* HomeDataManager.m in Sources */,
+				5FB48A422047062500DE29E7 /* HomeScrollPageView.m in Sources */,
 				BBF527D9204690DA00F7CDDC /* BBCTitleModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

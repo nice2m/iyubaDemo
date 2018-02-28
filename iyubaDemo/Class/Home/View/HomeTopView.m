@@ -12,6 +12,9 @@
 #import "HomeTopView.h"
 #import "HomeTopViewCollectionTabCell.h"
 
+
+static NSString * kHomeTopViewTabcellReuseID = @"HomeTopViewCollectionTabCell";
+
 @interface HomeTopView()
 
 @property (nonatomic, copy) HomeTopTabCellPressed tabCellPressed;
@@ -52,7 +55,7 @@
 - (void)updateJumpLineTo:(NSInteger)index{
     dispatch_async(dispatch_get_main_queue(), ^{
         [_collectionView bringSubviewToFront:self.lineJumpView];
-    })
+    });
     
     CGSize nowSize = self.lineJumpView.frame.size;
     CGFloat newOriginX = index * self.tabCellSize.width ;
@@ -115,7 +118,6 @@
     layout.minimumLineSpacing = 8.0;
     
     _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
-    //FIXME:
     [_collectionView setContentOffset:CGPointMake(0, -2)];
     [bottomContainerView addSubview:_collectionView];
     _collectionView.delegate = self;
@@ -123,6 +125,9 @@
     [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(bottomContainerView);
     }];
+    UINib * cellNib = [UINib nibWithNibName:kHomeTopViewTabcellReuseID bundle:nil];
+    [_collectionView registerNib:cellNib forCellWithReuseIdentifier:kHomeTopViewTabcellReuseID];
+    
     
     // 布局底部跳动视图,直接添加在!!trickey:!!!CollectionView 中
     _lineJumpView = [[UIView alloc] init];
@@ -163,9 +168,7 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString * cellReuseID = @"HomeTopViewCollectionTabCell";
-    
-    HomeTopViewCollectionTabCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellReuseID forIndexPath:indexPath];
+    HomeTopViewCollectionTabCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:kHomeTopViewTabcellReuseID forIndexPath:indexPath];
     [cell configModel:self.tabTitleModels[indexPath.row]];
     return  cell;
 }

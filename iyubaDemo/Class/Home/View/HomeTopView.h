@@ -18,7 +18,6 @@ typedef void(^HomeTopTabCellPressed)(NSInteger tapIndex);
 
 /**
  跳转到制定index
-
  @param index
  */
 - (void)updateJumpLineTo:(NSInteger)index;

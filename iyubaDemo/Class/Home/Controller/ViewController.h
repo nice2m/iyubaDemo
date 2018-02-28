@@ -13,3 +13,7 @@
 
 @end
 
+@interface ViewController(delegate)<UITableViewDataSource,UITableViewDelegate>
+
+@end
+

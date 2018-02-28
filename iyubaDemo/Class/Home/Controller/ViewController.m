@@ -6,12 +6,14 @@
 //  Copyright © 2018年 nice2meet-demo. All rights reserved.
 //
 
-#import "ViewController.h"
 #import <AFNetworking.h>
 #import <ONOXMLDocument.h>
+#import <Masonry/Masonry.h>
+
+#import "ViewController.h"
 #import "NetworkManager.h"
 #import "BBCTitleModel.h"
-#import <Masonry/Masonry.h>
+#import "HomeDataManager.h"
 /*
  #import "Ono.h"
  
@@ -40,6 +42,9 @@
  NSLog(@"%@", element);
  }];
  */
+
+static NSString * kHomeTableViewCellReuseId = @"HomeIndexCell";
+
 @interface ViewController ()
 
 @property (nonatomic, strong) UITableView * tableView;
@@ -47,18 +52,17 @@
 @property (nonatomic, strong) UIView * centerContainerView;
 @property (nonatomic, strong) UIView * bottomContainerView;
 
+@property (nonatomic, strong)HomeDataManager *dataManager;
+
 @end
 
 @implementation ViewController
-
 
 #pragma mark - lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
-    
 }
 
 
@@ -68,9 +72,47 @@
 }
 
 #pragma mark - private
+- (void)configUI{
+    _topContainerView = [UIView new];
+    [self.view addSubview:_topContainerView];
+    
+    _centerContainerView = [UIView new];
+    [self.view addSubview:_centerContainerView];
+    
+    _bottomContainerView = [UIView new];
+    [self.view addSubview:_bottomContainerView];
+#warning "    // TODO: "
 
+    // 布局tableview
+    _tableView = [[UITableView alloc] init];
+    [_centerContainerView addSubview:_tableView];
+    
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    
+    UINib * nib = [UINib nibWithNibName:kHomeTableViewCellReuseId bundle:nil];
+    [_tableView registerNib:nib forCellReuseIdentifier:kHomeTableViewCellReuseId];
+    
+}
 
-
-
+- (void)config{
+    _dataManager = [[HomeDataManager alloc] init];
+}
 
 @end
+
+
+@implementation ViewController(delegate)
+
+- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@""];
+    return  cell;
+}
+
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.dataManager.dataSource.count;
+}
+
+@end
+
+
