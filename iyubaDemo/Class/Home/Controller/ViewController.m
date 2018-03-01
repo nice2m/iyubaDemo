@@ -8,6 +8,7 @@
 
 #import <ONOXMLDocument.h>
 #import <MJRefresh/MJRefresh.h>
+#import "UIViewController+toast.h"
 
 #import "NetworkManager.h"
 #import "BBCTitleModel.h"
@@ -19,48 +20,58 @@
 #import "HomeScrollPageView.h"
 #import "HomeFooterView.h"
 #import "HomeIndexCell.h"
-/*
- #import "Ono.h"
- 
- NSData *data = ...;
- NSError *error;
- 
- ONOXMLDocument *document = [ONOXMLDocument XMLDocumentWithData:data error:&error];
- for (ONOXMLElement *element in document.rootElement.children) {
- NSLog(@"%@: %@", element.tag, element.attributes);
- }
- 
- // Support for Namespaces
- NSString *author = [[document.rootElement firstChildWithTag:@"creator" inNamespace:@"dc"] stringValue];
- 
- // Automatic Conversion for Number & Date Values
- NSDate *date = [[document.rootElement firstChildWithTag:@"created_at"] dateValue]; // ISO 8601 Timestamp
- NSInteger numberOfWords = [[[document.rootElement firstChildWithTag:@"word_count"] numberValue] integerValue];
- BOOL isPublished = [[[document.rootElement firstChildWithTag:@"is_published"] numberValue] boolValue];
- 
- // Convenient Accessors for Attributes
- NSString *unit = [document.rootElement firstChildWithTag:@"Length"][@"unit"];
- NSDictionary *authorAttributes = [[document.rootElement firstChildWithTag:@"author"] attributes];
- 
- // Support for XPath & CSS Queries
- [document enumerateElementsWithXPath:@"//Content" usingBlock:^(ONOXMLElement *element, NSUInteger idx, BOOL *stop) {
- NSLog(@"%@", element);
- }];
- */
 
+// 首页TableView 复用标识
 static NSString * kHomeTableViewCellReuseId = @"HomeIndexCell";
+
 
 @interface ViewController ()
 
-@property (nonatomic, strong) UITableView * tableView;
+
+/**
+ 顶部导航栏容器视图
+ */
 @property (nonatomic, strong) UIView * topContainerView;
+
+/**
+ scrollPage 容器视图
+ */
 @property (nonatomic, strong) UIView * scrollContainerView;
+
+/**
+ 新闻tableView 容器视图
+ */
 @property (nonatomic, strong) UIView * tableContainerView;
+
+/**
+ 新闻 tableView
+ */
+@property (nonatomic, strong) UITableView * tableView;
+
+/**
+ 底部footer 容器视图
+ */
 @property (nonatomic, strong) UIView * bottomContainerView;
 
+
+/**
+ 自定义视图，首页导航栏视图
+ */
 @property (nonatomic, strong) HomeTopView * homeTopView;
+
+/**
+ 自定义视图，scrollPage 视图
+ */
 @property (nonatomic, strong) HomeScrollPageView * homeScrollTopView;
+
+/**
+ 首页自定义视图，底部脚标视图
+ */
 @property (nonatomic, strong) HomeFooterView * homeFooterView;
+
+/**
+ MVCS Store 数据处理对象
+ */
 @property (nonatomic, strong) HomeDataManager *dataManager;
 
 @end
@@ -83,6 +94,11 @@ static NSString * kHomeTableViewCellReuseId = @"HomeIndexCell";
 }
 
 #pragma mark - private
+
+
+/**
+ 配置布局视图
+ */
 - (void)configUI{
     _topContainerView = [UIView new];
     [self.view addSubview:_topContainerView];
@@ -115,7 +131,6 @@ static NSString * kHomeTableViewCellReuseId = @"HomeIndexCell";
     }];
     
     //容器视图布局；
-    
     [_topContainerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view).offset(20.0);
         make.leading.trailing.equalTo(self.view);
@@ -150,9 +165,9 @@ static NSString * kHomeTableViewCellReuseId = @"HomeIndexCell";
     CGSize tabCellSize = CGSizeMake(contentWidht / titles.count, 44.0);
     _homeTopView = [[HomeTopView alloc] initWithFrame:CGRectZero titles:titles topBgImg:topBgImg tabCellSize:tabCellSize homeBtnPressed:^{
         NSLog(@"homeBtnPressed");
-#warning "首页按钮点击"
+        [self showToast:@"首页按钮点击"];
+
     } tabCellPressed:^(NSInteger tapIndex) {
-#warning "标题按钮点击"
         NSLog(@"tabCellPressed \t%ld",(long)tapIndex);
         [_homeTopView updateJumpLineTo:tapIndex];
     }];
@@ -165,6 +180,8 @@ static NSString * kHomeTableViewCellReuseId = @"HomeIndexCell";
     // 配置cyclePageView
     _homeScrollTopView = [[HomeScrollPageView alloc] initWithFrame:CGRectZero imagesUrlArray:@[] imgOnTapBlock:^(NSInteger index) {
         NSLog(@"HomeScrollPageView imgOnTapBlock :%ld ",index);
+        [self showToast:[NSString stringWithFormat:@"点击第%ld张",index + 1]];
+
     }];
     [_scrollContainerView addSubview:_homeScrollTopView];
     [_homeScrollTopView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -173,17 +190,21 @@ static NSString * kHomeTableViewCellReuseId = @"HomeIndexCell";
     
     // 配置footer
     _homeFooterView = [[HomeFooterView alloc] initWithFrame:CGRectZero lastBtnBlock:^{
-#warning "上一页"
+        [self showToast:@"上一页点击"];
 
         NSLog(@"lastBtnBlock");
     } nextBtnBlock:^{
-#warning "下一页"
 
         NSLog(@"nextBtnBlock");
+        [self showToast:@"下一页点击"];
+        
     } bottomImgBlock:^{
-#warning "底部图片点击"
-
-        NSLog(@"bottomImgBlock");
+        [self showAlert:@"跳转到腾讯应用市场？" completBlock:^{
+            NSURL * url = [NSURL URLWithString:@"http://a.app.qq.com/o/simple.jsp?pkgname=com.iyuba.bbcinone"];
+            if ([[UIApplication sharedApplication] canOpenURL:url]) {
+                [[UIApplication sharedApplication] openURL:url];
+            }
+        }];
     }];
     [_bottomContainerView addSubview: _homeFooterView];
     [_homeFooterView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -192,11 +213,40 @@ static NSString * kHomeTableViewCellReuseId = @"HomeIndexCell";
     
 }
 
+
+/**
+ alert 提示，并且执行操作
+
+ @param msg alert 的信息
+ @param complete 确认执行的操作
+ */
+- (void)showAlert:(NSString *)msg completBlock:(void(^)(void))complete{
+    UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:@"提示" message:msg preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction * cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"cancled");
+    }];
+    UIAlertAction * confirm = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        complete();
+    }];
+    [alertVC addAction:confirm];
+    [alertVC addAction:cancel];
+    [self presentViewController:alertVC animated:true completion:nil];
+
+}
+
+
+/**
+ 基本配置
+ */
 - (void)config{
     _dataManager = [[HomeDataManager alloc] initWith:self];
     [self refreshData];
 }
 
+
+/**
+ 请求刷新网络数据
+ */
 - (void)refreshData {
     __weak typeof (self) weakSelf = self;
     
@@ -210,9 +260,14 @@ static NSString * kHomeTableViewCellReuseId = @"HomeIndexCell";
     }];
 }
 
+
 @end
 
 
+
+/**
+ TableView  代理方法
+ */
 @implementation ViewController(delegate)
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {

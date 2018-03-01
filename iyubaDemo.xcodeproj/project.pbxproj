@@ -13,6 +13,7 @@
 		5FB48A3F2046FDFB00DE29E7 /* HomeIndexCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FB48A3D2046FDFB00DE29E7 /* HomeIndexCell.xib */; };
 		5FB48A422047062500DE29E7 /* HomeScrollPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB48A412047062500DE29E7 /* HomeScrollPageView.m */; };
 		B3AC154EC2F07D96DDBE1439 /* libPods-iyubaDemoUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D18570C9D6C8B2321E0D3D62 /* libPods-iyubaDemoUITests.a */; };
+		BB1EE87A20484F4300BDE1EB /* UIViewController+toast.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1EE87920484F4300BDE1EB /* UIViewController+toast.m */; };
 		BB968C8A2047A94300BBA0B5 /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = BB968C892047A94300BBA0B5 /* UIColor+Extension.m */; };
 		BB968C8D2047C2A200BBA0B5 /* HomeFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB968C8C2047C2A200BBA0B5 /* HomeFooterView.m */; };
 		BBF5279B20463A8D00F7CDDC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBF5279920463A8D00F7CDDC /* Main.storyboard */; };
@@ -60,6 +61,8 @@
 		9C6BC6234801F59E9A671C63 /* Pods-iyubaDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iyubaDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iyubaDemo/Pods-iyubaDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		AD3A142A20D925B2F655AF0A /* Pods-iyubaDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iyubaDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-iyubaDemo/Pods-iyubaDemo.release.xcconfig"; sourceTree = "<group>"; };
 		B1CF6534DF1BB054D6C78551 /* libPods-iyubaDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iyubaDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB1EE87820484F4300BDE1EB /* UIViewController+toast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+toast.h"; sourceTree = "<group>"; };
+		BB1EE87920484F4300BDE1EB /* UIViewController+toast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+toast.m"; sourceTree = "<group>"; };
 		BB968C8220478F1900BBA0B5 /* UIDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIDefine.h; sourceTree = "<group>"; };
 		BB968C8320478F7B00BBA0B5 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		BB968C882047A94300BBA0B5 /* UIColor+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extension.h"; sourceTree = "<group>"; };
@@ -157,6 +160,8 @@
 			children = (
 				BB968C882047A94300BBA0B5 /* UIColor+Extension.h */,
 				BB968C892047A94300BBA0B5 /* UIColor+Extension.m */,
+				BB1EE87820484F4300BDE1EB /* UIViewController+toast.h */,
+				BB1EE87920484F4300BDE1EB /* UIViewController+toast.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -610,6 +615,7 @@
 				BBF527D320465A9A00F7CDDC /* ViewController.m in Sources */,
 				BBF527D220465A9A00F7CDDC /* AppDelegate.m in Sources */,
 				BBF527E720469D0400F7CDDC /* HomeTopViewCollectionTabCellModel.m in Sources */,
+				BB1EE87A20484F4300BDE1EB /* UIViewController+toast.m in Sources */,
 				BBF527E320469C0900F7CDDC /* HomeTopViewCollectionTabCell.m in Sources */,
 				5FB48A3E2046FDFB00DE29E7 /* HomeIndexCell.m in Sources */,
 				BBF527DF204698DB00F7CDDC /* HomeTopView.m in Sources */,

@@ -88,7 +88,7 @@
     //底部视图
     UIImageView * bottomImageView = [[UIImageView alloc] init];
     bottomImageView.image = [UIImage imageNamed:@"bottomImg"];
-    bottomImageView.contentMode = UIViewContentModeScaleAspectFit;
+    bottomImageView.contentMode = UIViewContentModeScaleAspectFill;
     [self.bottomContainerView addSubview:bottomImageView];
     
     bottomImageView.userInteractionEnabled = YES;

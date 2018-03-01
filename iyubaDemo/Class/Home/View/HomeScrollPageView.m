@@ -57,12 +57,6 @@
         make.edges.equalTo(_containerView);
     }];
     
-    __weak typeof(self) weakSelf = self;
-    
-    _cycleView.itemDidScrollOperationBlock = ^(NSInteger currentIndex) {
-        NSLog(@"itemDidScrollOperationBlock: \t%ld",currentIndex);
-        weakSelf.currentScrollPageIndex = currentIndex;
-    };
     
     // left
     // left-arrow
@@ -131,6 +125,7 @@
 /** 图片滚动回调 */
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didScrollToIndex:(NSInteger)index{
     NSLog(@"cycleScrollView:(SDCycleScrollView *)cycleScrollView didScrollToIndex:(NSInteger)index:%ld",(long)index);
+    self.currentScrollPageIndex = index;
 }
 
 @end
