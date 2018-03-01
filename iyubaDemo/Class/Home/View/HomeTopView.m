@@ -152,7 +152,7 @@ CGFloat kHomeTopViewCellSpacing = 8.0;
     
     // 布局底部跳动视图,直接添加在!!trickey:!!!CollectionView 中
     _lineJumpView = [[UIView alloc] init];
-    _lineJumpView.backgroundColor = [UIColor orangeColor];
+    _lineJumpView.backgroundColor = [UIColor redColor];
     [_collectionView addSubview:_lineJumpView];
     
     _lineJumpView.frame = CGRectMake(0, 42, self.tabCellSize.width, 2.0);
