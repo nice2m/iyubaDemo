@@ -79,8 +79,8 @@
     [leftBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(_containerView);
         make.leading.equalTo(_containerView.mas_leading).offset(8.0);
-        make.height.equalTo(@26.0);
-        make.width.equalTo(@52.0);
+        make.height.equalTo(@32.0);
+        make.width.equalTo(@32.0);
     }];
     
     // right
@@ -88,8 +88,8 @@
     [rightBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(_containerView);
         make.trailing.equalTo(_containerView.mas_trailing).offset(-8.0);
-        make.height.equalTo(@26.0);
-        make.width.equalTo(@52.0);
+        make.height.equalTo(@32.0);
+        make.width.equalTo(@32.0);
     }];
 }
 
@@ -107,7 +107,7 @@
 
 - (void)rightBtnPressed:(UIButton *)sender{
     NSInteger nextIndex = self.currentScrollPageIndex + 1;
-    if (self.currentScrollPageIndex == (self.imagesArray.count - 1)){
+    if (self.currentScrollPageIndex >= (self.imagesArray.count - 1)){
         nextIndex = 0 ;
     }
     [_cycleView makeScrollViewScrollToIndex:nextIndex];
