@@ -7,8 +7,10 @@
 //
 
 #import "HomeIndexCell.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface HomeIndexCell()
+@property (weak, nonatomic) IBOutlet UILabel *topImaginaryLineLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *leftImgView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *readDetailDesLabel;
@@ -28,10 +30,20 @@
     // Configure the view for the selected state
 }
 
-- (void)configModel:(NSDictionary *)dict{
-    self.leftImgView.image = [UIImage imageNamed:@""];
-    self.titleLabel.text = @"";
-    self.readDetailDesLabel.text = [NSString stringWithFormat:@"%@ | 阅读：%ld",@"",(long)0];
+- (void)configModel:(BBCTitleModel *)model{
+    NSURL * imgURL = [NSURL URLWithString:model.Pic];
+    [self.leftImgView sd_setImageWithURL:imgURL placeholderImage:[UIImage imageNamed:@"homeScrollPagePlaceHolder"] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        [UIView animateWithDuration:0.15 animations:^{
+            self.leftImgView.alpha = 1.0;
+        }];
+    }];
+    self.titleLabel.text = model.Title;
+    NSString * detailDate = [model.CreatTime componentsSeparatedByString:@" "].firstObject;
+    self.readDetailDesLabel.text = [NSString stringWithFormat:@"%@ | 阅读：%@",detailDate,model.ReadCount];
+}
+
+- (void)showTopImaginary{
+    self.topImaginaryLineLabel.hidden = FALSE;
 }
 
 @end

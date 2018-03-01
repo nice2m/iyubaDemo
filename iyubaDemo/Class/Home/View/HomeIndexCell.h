@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BBCTitleModel.h"
 
 @interface HomeIndexCell : UITableViewCell
+
+
+- (void)configModel:(BBCTitleModel *)model;
+
+- (void)showTopImaginary;
 
 @end

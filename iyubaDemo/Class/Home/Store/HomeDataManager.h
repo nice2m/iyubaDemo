@@ -7,12 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NetworkManager.h"
+
 @class BBCTitleModel;
 
 @interface HomeDataManager : NSObject
 
 @property(nonatomic, strong) NSMutableArray<BBCTitleModel*> *dataSource;
 
-- (void)fetchNextPage;
+
+- (instancetype)initWith:(UIViewController *)currentController;
+
+
+- (void)fetchData:(NetworkRequestCompleteHandler)completeHandler;
+
+- (NSArray <NSString *>*)cycleImages;
 
 @end

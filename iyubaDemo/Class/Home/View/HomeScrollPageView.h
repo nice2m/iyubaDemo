@@ -7,10 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <SDCycleScrollView.h>
 
 typedef void(^HomeScrollPageViewImgOnTapBlock)(NSInteger index);
+
 @interface HomeScrollPageView : UIView
 
-- (instancetype)initWithFrame:(CGRect)frame imagesArray:(NSArray<NSString *>*)imagesArray imgOnTapBlock:(HomeScrollPageViewImgOnTapBlock)imgOnTapBlock;
+- (instancetype)initWithFrame:(CGRect)frame imagesUrlArray:(NSArray<NSString *>*)imagesArray imgOnTapBlock:(HomeScrollPageViewImgOnTapBlock)imgOnTapBlock;
+- (void)updateImages:(NSArray<NSString *>*)images;
+
+@end
+
+@interface HomeScrollPageView(delegate)<SDCycleScrollViewDelegate>
 
 @end

@@ -22,7 +22,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nhw-Xa-uKL">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="83.5"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J1s-Jc-HeR">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J1s-Jc-HeR">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="4"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="4" id="dvh-HV-Xwc"/>
@@ -32,7 +32,7 @@
                                 <nil key="textColor"/>
                                 <color key="highlightedColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4eq-Pz-yOS">
+                            <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4eq-Pz-yOS">
                                 <rect key="frame" x="12" y="12" width="99" height="59.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="4eq-Pz-yOS" secondAttribute="height" multiplier="5:3" id="JLv-eC-ghK"/>
@@ -57,7 +57,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9as-cc-a5k">
                                 <rect key="frame" x="123" y="53" width="28.5" height="13.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.46666666666666667" green="0.46666666666666667" blue="0.46666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -90,6 +90,7 @@
                 <outlet property="leftImgView" destination="4eq-Pz-yOS" id="cm2-k8-Dbg"/>
                 <outlet property="readDetailDesLabel" destination="9as-cc-a5k" id="Qc6-eg-MtX"/>
                 <outlet property="titleLabel" destination="xFN-H1-Gyz" id="fxj-ri-ZDk"/>
+                <outlet property="topImaginaryLineLabel" destination="J1s-Jc-HeR" id="zL0-kz-H9w"/>
             </connections>
         </tableViewCell>
     </objects>

@@ -8,13 +8,13 @@
 #import <Ono.h>
 
 #import "HomeDataManager.h"
-#import "NetworkManager.h"
 #import "BBCTitleModel.h"
 
 
 @interface HomeDataManager()
 
 @property (nonatomic, assign) NSInteger currentPageNo;
+@property (nonatomic, weak) UIViewController *currentController;
 
 
 @end
@@ -23,12 +23,44 @@
 @implementation HomeDataManager
 
 
-- (void)fetchNextPage {
+//MARK: - interface
+
+- (instancetype)initWith:(UIViewController *)currentController{
+    if (self = [super init]){
+        self.currentController = currentController;
+    }
+    return  self;
+}
+
+- (void)fetchData:(NetworkRequestCompleteHandler)completeHandler {
     
+    MBProgressHUD * hud = [MBProgressHUD showHUDAddedTo:self.currentController.view animated:true];
+    hud.mode = MBProgressHUDModeIndeterminate;
+    hud.label.text = @"加载中";
+    [hud showAnimated:true];
     [[NetworkManager sharedManager] postUrl:@"http://apps.iyuba.com/minutes/titleNewApi.jsp?maxid=0&format=xml&type=android" parameter:@{} completeHandler:^(id responsObject, NSError *error) {
         NSLog(@"%@",responsObject);
-        [self parseXMLwithData:responsObject];
+        [hud hideAnimated:true];
+        
+        if (responsObject != nil) {
+            [self parseXMLwithData:responsObject];
+        }
+        else {
+            MBProgressHUD * hud = [MBProgressHUD showHUDAddedTo:self.currentController.view animated:true];
+            hud.mode = MBProgressHUDModeText;
+            hud.label.text = @"加载失败，请重试";
+            [hud hideAnimated:true afterDelay:0.85];
+        }
+        completeHandler ? completeHandler(responsObject,error) : nil;
     }];
+}
+
+- (NSArray <NSString *>*)cycleImages {
+    NSMutableArray * rs = [NSMutableArray array];
+    for (BBCTitleModel * model in self.dataSource) {
+        [rs addObject:model.Pic];
+    }
+    return rs;
 }
 
 //MARK: - private
@@ -39,6 +71,7 @@
         NSLog(@"%@",documentError);
         return;
     }
+    [self.dataSource removeAllObjects];
     
     [document.rootElement enumerateElementsWithXPath:@"Bbctitle" usingBlock:^(ONOXMLElement *element, NSUInteger idx, BOOL *stop) {
         // NSLog(@"%@",element);

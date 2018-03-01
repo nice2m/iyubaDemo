@@ -11,6 +11,8 @@
 typedef void(^HomeTopViewHomeBtnPressed)(void);
 typedef void(^HomeTopTabCellPressed)(NSInteger tapIndex);
 
+extern CGFloat kHomeTopViewCellSpacing;
+
 @interface HomeTopView : UIView
 
 - (instancetype)initWithFrame:(CGRect)frame titles:(NSArray<NSString *>*)titles topBgImg:(UIImage *)topBgImg tabCellSize:(CGSize)tabCellSize homeBtnPressed:(HomeTopViewHomeBtnPressed)homeBtnPressed tabCellPressed:(HomeTopTabCellPressed)tabCellPressed;
@@ -18,7 +20,7 @@ typedef void(^HomeTopTabCellPressed)(NSInteger tapIndex);
 
 /**
  跳转到制定index
- @param index
+ @param index s
  */
 - (void)updateJumpLineTo:(NSInteger)index;
 

@@ -27,9 +27,9 @@
 - (void)configModel:(HomeTopViewCollectionTabCellModel *)model{
     self.titleLabel.text = model.title;
     
-    UIColor * color = [UIColor blueColor];
+    UIColor * color = [UIColor colorWithHexString:@"#5C5C5C"];
     if (model.isSelected) {
-        color = [UIColor redColor];
+        color = [UIColor colorWithHexString:@"#86A5C9"];
     }
     self.titleLabel.textColor = color;
 }

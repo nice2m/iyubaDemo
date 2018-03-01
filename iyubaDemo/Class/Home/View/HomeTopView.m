@@ -14,6 +14,7 @@
 
 
 static NSString * kHomeTopViewTabcellReuseID = @"HomeTopViewCollectionTabCell";
+CGFloat kHomeTopViewCellSpacing = 8.0;
 
 @interface HomeTopView()
 
@@ -53,21 +54,33 @@ static NSString * kHomeTopViewTabcellReuseID = @"HomeTopViewCollectionTabCell";
 
 
 - (void)updateJumpLineTo:(NSInteger)index{
+    
+    //
+    for (HomeTopViewCollectionTabCellModel * cellModel in self.tabTitleModels) {
+        cellModel.isSelected = false;
+    }
+    self.tabTitleModels[index].isSelected = true;
+    [self.collectionView reloadData];
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         [_collectionView bringSubviewToFront:self.lineJumpView];
     });
     
     CGSize nowSize = self.lineJumpView.frame.size;
     CGFloat newOriginX = index * self.tabCellSize.width ;
+    if (index > 1){
+        newOriginX += index * kHomeTopViewCellSpacing;
+    }
     
     [UIView animateWithDuration:0.15 animations:^{
-        self.lineJumpView.frame = CGRectMake(newOriginX, 44.0, nowSize.width, nowSize.height);
+        self.lineJumpView.frame = CGRectMake(newOriginX, 42.0, nowSize.width, nowSize.height);
     }];
 }
 
 //MAKR: - event
 - (void)homeBtnPressedAction:(UIButton *)sender{
     NSLog(@"%@",sender);
+    self.homeBtnPressed ? self.homeBtnPressed() : nil;
 }
 
 //MARK: - private
@@ -75,6 +88,7 @@ static NSString * kHomeTopViewTabcellReuseID = @"HomeTopViewCollectionTabCell";
 - (void)configUI {
     UIView * topContainerView = [[UIView alloc] init];
     UIView * bottomContainerView = [[UIView alloc] init];
+    [topContainerView setBackgroundColor:[UIColor colorWithHexString:@"#159867"]];
     
     [self addSubview:topContainerView];
     [self addSubview:bottomContainerView];
@@ -93,21 +107,27 @@ static NSString * kHomeTopViewTabcellReuseID = @"HomeTopViewCollectionTabCell";
     // 顶部视图
     _topImgView = [[UIImageView alloc] init];
     _topImgView.image = self.topBgImg;
-    _topImgView.contentMode = UIViewContentModeScaleAspectFill;
+    _topImgView.contentMode = UIViewContentModeLeft;
+    _topImgView.clipsToBounds  = YES;
     
     [topContainerView addSubview:_topImgView];
     
     _homeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [_homeBtn setImage:[UIImage imageNamed:@"homeIndexBtn"] forState:UIControlStateNormal];
     [_homeBtn addTarget:self action:@selector(homeBtnPressedAction:) forControlEvents:UIControlEventTouchUpInside];
+    _homeBtn.imageView.contentMode = UIViewContentModeScaleAspectFit;
+
     [topContainerView addSubview:_homeBtn];
     
     [_topImgView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(topContainerView);
+        make.top.leading.equalTo(topContainerView).offset(8.0);
+        make.bottom.equalTo(topContainerView).offset(-8.0);
+        make.width.equalTo(@192.0);
     }];
     [_homeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(topContainerView.mas_trailing).offset(12.0);
-        make.top.bottom.equalTo(topContainerView);
+        make.trailing.equalTo(topContainerView.mas_trailing).offset(-8.0);
+        make.top.equalTo(topContainerView).offset(8.0);
+        make.bottom.equalTo(topContainerView).offset(-8.0);
         make.width.equalTo(@44.0);
     }];
     
@@ -115,9 +135,10 @@ static NSString * kHomeTopViewTabcellReuseID = @"HomeTopViewCollectionTabCell";
     UICollectionViewFlowLayout * layout = [[UICollectionViewFlowLayout alloc] init];
     layout.itemSize = self.tabCellSize;
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    layout.minimumLineSpacing = 8.0;
+    layout.minimumLineSpacing = kHomeTopViewCellSpacing;
     
     _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+    _collectionView.backgroundColor = [UIColor whiteColor];
     [_collectionView setContentOffset:CGPointMake(0, -2)];
     [bottomContainerView addSubview:_collectionView];
     _collectionView.delegate = self;
@@ -136,9 +157,10 @@ static NSString * kHomeTopViewTabcellReuseID = @"HomeTopViewCollectionTabCell";
     
     _lineJumpView.frame = CGRectMake(0, 42, self.tabCellSize.width, 2.0);
     
-    dispatch_sync(dispatch_get_main_queue(), ^{
+    dispatch_async(dispatch_get_main_queue(), ^{
         [_collectionView bringSubviewToFront:(_lineJumpView)];
     });
+    [self updateJumpLineTo:0];
 }
 
 - (NSMutableArray<HomeTopViewCollectionTabCellModel *> *)tabTitleModels {
@@ -156,7 +178,7 @@ static NSString * kHomeTopViewTabcellReuseID = @"HomeTopViewCollectionTabCell";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    self.tabCellPressed ?: self.tabCellPressed(indexPath.row);
+    self.tabCellPressed ? self.tabCellPressed(indexPath.row) : nil;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {

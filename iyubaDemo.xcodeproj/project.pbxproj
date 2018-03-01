@@ -13,6 +13,8 @@
 		5FB48A3F2046FDFB00DE29E7 /* HomeIndexCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FB48A3D2046FDFB00DE29E7 /* HomeIndexCell.xib */; };
 		5FB48A422047062500DE29E7 /* HomeScrollPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB48A412047062500DE29E7 /* HomeScrollPageView.m */; };
 		B3AC154EC2F07D96DDBE1439 /* libPods-iyubaDemoUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D18570C9D6C8B2321E0D3D62 /* libPods-iyubaDemoUITests.a */; };
+		BB968C8A2047A94300BBA0B5 /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = BB968C892047A94300BBA0B5 /* UIColor+Extension.m */; };
+		BB968C8D2047C2A200BBA0B5 /* HomeFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB968C8C2047C2A200BBA0B5 /* HomeFooterView.m */; };
 		BBF5279B20463A8D00F7CDDC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBF5279920463A8D00F7CDDC /* Main.storyboard */; };
 		BBF5279D20463A8D00F7CDDC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBF5279C20463A8D00F7CDDC /* Assets.xcassets */; };
 		BBF527A020463A8D00F7CDDC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBF5279E20463A8D00F7CDDC /* LaunchScreen.storyboard */; };
@@ -58,6 +60,12 @@
 		9C6BC6234801F59E9A671C63 /* Pods-iyubaDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iyubaDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iyubaDemo/Pods-iyubaDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		AD3A142A20D925B2F655AF0A /* Pods-iyubaDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iyubaDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-iyubaDemo/Pods-iyubaDemo.release.xcconfig"; sourceTree = "<group>"; };
 		B1CF6534DF1BB054D6C78551 /* libPods-iyubaDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iyubaDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB968C8220478F1900BBA0B5 /* UIDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIDefine.h; sourceTree = "<group>"; };
+		BB968C8320478F7B00BBA0B5 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		BB968C882047A94300BBA0B5 /* UIColor+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extension.h"; sourceTree = "<group>"; };
+		BB968C892047A94300BBA0B5 /* UIColor+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extension.m"; sourceTree = "<group>"; };
+		BB968C8B2047C2A200BBA0B5 /* HomeFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeFooterView.h; sourceTree = "<group>"; };
+		BB968C8C2047C2A200BBA0B5 /* HomeFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeFooterView.m; sourceTree = "<group>"; };
 		BBF5279020463A8D00F7CDDC /* iyubaDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iyubaDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBF5279A20463A8D00F7CDDC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BBF5279C20463A8D00F7CDDC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -144,6 +152,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		BB968C842047A90A00BBA0B5 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				BB968C882047A94300BBA0B5 /* UIColor+Extension.h */,
+				BB968C892047A94300BBA0B5 /* UIColor+Extension.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		BBF5278720463A8C00F7CDDC = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +244,9 @@
 		BBF527C820465A2900F7CDDC /* Expand */ = {
 			isa = PBXGroup;
 			children = (
+				BB968C842047A90A00BBA0B5 /* Category */,
+				BB968C8220478F1900BBA0B5 /* UIDefine.h */,
+				BB968C8320478F7B00BBA0B5 /* PrefixHeader.pch */,
 			);
 			path = Expand;
 			sourceTree = "<group>";
@@ -286,6 +306,8 @@
 				5FB48A3D2046FDFB00DE29E7 /* HomeIndexCell.xib */,
 				5FB48A402047062500DE29E7 /* HomeScrollPageView.h */,
 				5FB48A412047062500DE29E7 /* HomeScrollPageView.m */,
+				BB968C8B2047C2A200BBA0B5 /* HomeFooterView.h */,
+				BB968C8C2047C2A200BBA0B5 /* HomeFooterView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -535,9 +557,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-iyubaDemo/Pods-iyubaDemo-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -588,7 +613,9 @@
 				BBF527E320469C0900F7CDDC /* HomeTopViewCollectionTabCell.m in Sources */,
 				5FB48A3E2046FDFB00DE29E7 /* HomeIndexCell.m in Sources */,
 				BBF527DF204698DB00F7CDDC /* HomeTopView.m in Sources */,
+				BB968C8A2047A94300BBA0B5 /* UIColor+Extension.m in Sources */,
 				BBF527A320463A8D00F7CDDC /* main.m in Sources */,
+				BB968C8D2047C2A200BBA0B5 /* HomeFooterView.m in Sources */,
 				BBF527DC204697C900F7CDDC /* HomeDataManager.m in Sources */,
 				5FB48A422047062500DE29E7 /* HomeScrollPageView.m in Sources */,
 				BBF527D9204690DA00F7CDDC /* BBCTitleModel.m in Sources */,
@@ -758,6 +785,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TKA5QRRRJ4;
 				ENABLE_BITCODE = NO;
+				GCC_PREFIX_HEADER = $SRCROOT/iyubaDemo/Expand/PrefixHeader.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/iyubaDemo/Resource/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -775,6 +803,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TKA5QRRRJ4;
 				ENABLE_BITCODE = NO;
+				GCC_PREFIX_HEADER = $SRCROOT/iyubaDemo/Expand/PrefixHeader.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/iyubaDemo/Resource/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
