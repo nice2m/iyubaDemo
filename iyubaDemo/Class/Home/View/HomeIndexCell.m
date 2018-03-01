@@ -33,7 +33,7 @@
 - (void)configModel:(BBCTitleModel *)model{
     NSURL * imgURL = [NSURL URLWithString:model.Pic];
     [self.leftImgView sd_setImageWithURL:imgURL placeholderImage:[UIImage imageNamed:@"homeScrollPagePlaceHolder"] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-        [UIView animateWithDuration:0.15 animations:^{
+        [UIView animateWithDuration:0.2 animations:^{
             self.leftImgView.alpha = 1.0;
         }];
     }];

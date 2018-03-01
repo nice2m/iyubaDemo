@@ -16,6 +16,11 @@
 @property (nonatomic, assign) NSInteger currentPageNo;
 @property (nonatomic, weak) UIViewController *currentController;
 
+@property (nonatomic, strong)NSMutableArray<BBCTitleModel *> * firstDataSource;
+@property (nonatomic, strong)NSMutableArray<BBCTitleModel *> * secondDataSource;
+@property (nonatomic, strong)NSMutableArray<BBCTitleModel *> * thirdDataSource;
+@property (nonatomic, strong)NSMutableArray<BBCTitleModel *> * forthDataSource;
+
 
 @end
 
@@ -32,18 +37,18 @@
     return  self;
 }
 
-- (void)fetchData:(NetworkRequestCompleteHandler)completeHandler {
-    
+- (void)fetchDataWithParentID:(NSInteger)parentID completeHandler:(NetworkRequestCompleteHandler)completeHandler{
     MBProgressHUD * hud = [MBProgressHUD showHUDAddedTo:self.currentController.view animated:true];
     hud.mode = MBProgressHUDModeIndeterminate;
     hud.label.text = @"加载中";
     [hud showAnimated:true];
-    [[NetworkManager sharedManager] postUrl:@"http://apps.iyuba.com/minutes/titleNewApi.jsp?maxid=0&format=xml&type=android" parameter:@{} completeHandler:^(id responsObject, NSError *error) {
+    ;
+    [[NetworkManager sharedManager] postUrl:kHomeDataApiWithParentID(parentID) parameter:@{} completeHandler:^(id responsObject, NSError *error) {
         NSLog(@"%@",responsObject);
         [hud hideAnimated:true];
         
         if (responsObject != nil) {
-            [self parseXMLwithData:responsObject];
+            [self parseXMLwithData:responsObject parentID:parentID];
         }
         else {
             MBProgressHUD * hud = [MBProgressHUD showHUDAddedTo:self.currentController.view animated:true];
@@ -55,23 +60,67 @@
     }];
 }
 
-- (NSArray <NSString *>*)cycleImages {
+- (void)fetchData:(NetworkRequestCompleteHandler)completeHandler {
+    MBProgressHUD * hud = [MBProgressHUD showHUDAddedTo:self.currentController.view animated:true];
+    hud.mode = MBProgressHUDModeIndeterminate;
+    hud.label.text = @"加载中";
+    [hud showAnimated:true];
+    ;
+    [[NetworkManager sharedManager] postUrl:kHomeDataApiWithParentID((long)1) parameter:@{} completeHandler:^(id responsObject, NSError *error) {
+        NSLog(@"%@",responsObject);
+        [hud hideAnimated:true];
+        
+        if (responsObject != nil) {
+            [self parseXMLwithData:responsObject parentID:(long)1];
+        }
+        else {
+            MBProgressHUD * hud = [MBProgressHUD showHUDAddedTo:self.currentController.view animated:true];
+            hud.mode = MBProgressHUDModeText;
+            hud.label.text = @"加载失败，请重试";
+            [hud hideAnimated:true afterDelay:0.85];
+        }
+        completeHandler ? completeHandler(responsObject,error) : nil;
+    }];
+    
+}
+
+- (NSArray <NSString *>*)cycleImagesWithParentID:(NSInteger)parentID {
+    NSArray * models = [self dataSourceWithParentId:parentID];
+    
     NSMutableArray * rs = [NSMutableArray array];
-    for (BBCTitleModel * model in self.dataSource) {
+    for (BBCTitleModel * model in models) {
         [rs addObject:model.Pic];
     }
     return rs;
 }
 
 //MARK: - private
-- (void) parseXMLwithData:(NSData *)data{
+- (void) parseXMLwithData:(NSData *)data parentID:(NSInteger)parentID{
+    
+    NSMutableArray * rsArr = nil;
+    switch (parentID) {
+        case 1:
+            rsArr = self.firstDataSource;
+            break;
+        case 2:
+            rsArr = self.secondDataSource;
+            break;
+        case 3:
+            rsArr = self.thirdDataSource;
+            break;
+        default:
+            rsArr = self.forthDataSource;
+            break;
+    }
+    
+    
     NSError * documentError = nil;
     ONOXMLDocument * document = [ONOXMLDocument XMLDocumentWithData:data error:&documentError];
     if (documentError) {
         NSLog(@"%@",documentError);
         return;
     }
-    [self.dataSource removeAllObjects];
+    [rsArr removeAllObjects];
     
     [document.rootElement enumerateElementsWithXPath:@"Bbctitle" usingBlock:^(ONOXMLElement *element, NSUInteger idx, BOOL *stop) {
         // NSLog(@"%@",element);
@@ -81,17 +130,56 @@
             modelDict[tmpElement.tag] = tmpElement.stringValue;
         }
         BBCTitleModel * model = [BBCTitleModel yy_modelWithDictionary:modelDict];
-        [self.dataSource addObject:model];
+        [rsArr addObject:model];
     }];
-    
 }
 
-- (NSMutableArray<BBCTitleModel *> *)dataSource{
-    if (_dataSource == nil) {
-        _dataSource = [NSMutableArray array];
+- (NSArray<BBCTitleModel *> *)dataSourceWithParentId:(NSInteger)parentID{
+    switch (parentID) {
+        case 1:
+            return  [self.firstDataSource copy];
+            break;
+        case 2:
+            return  [self.secondDataSource copy];
+            break;
+        case 3:
+            return  [self.thirdDataSource copy];
+            break;
+            
+        default:
+            return  [self.forthDataSource copy];
+
+            break;
     }
-    return _dataSource;
 }
+
+- (NSMutableArray<BBCTitleModel *> *)firstDataSource{
+    if (_firstDataSource == nil){
+        _firstDataSource = [NSMutableArray array];
+    }
+    return _firstDataSource;
+}
+
+- (NSMutableArray<BBCTitleModel *> *)secondDataSource{
+    if (_secondDataSource == nil){
+        _secondDataSource = [NSMutableArray array];
+    }
+    return _secondDataSource;
+}
+- (NSMutableArray<BBCTitleModel *> *)thirdDataSource{
+    if (_thirdDataSource == nil){
+        _thirdDataSource = [NSMutableArray array];
+    }
+    return _thirdDataSource;
+}
+- (NSMutableArray<BBCTitleModel *> *)forthDataSource{
+    if (_forthDataSource == nil){
+        _forthDataSource = [NSMutableArray array];
+    }
+    return _forthDataSource;
+}
+
+
 
 
 @end

@@ -13,14 +13,13 @@
 
 @interface HomeDataManager : NSObject
 
-@property(nonatomic, strong) NSMutableArray<BBCTitleModel*> *dataSource;
-
-
 - (instancetype)initWith:(UIViewController *)currentController;
 
 
 - (void)fetchData:(NetworkRequestCompleteHandler)completeHandler;
 
-- (NSArray <NSString *>*)cycleImages;
+- (void)fetchDataWithParentID:(NSInteger)parentID completeHandler:(NetworkRequestCompleteHandler)completeHandler;
+- (NSArray<BBCTitleModel *> *)dataSourceWithParentId:(NSInteger)parentID;
+- (NSArray <NSString *>*)cycleImagesWithParentID:(NSInteger)parentID;
 
 @end

@@ -63,6 +63,7 @@
 		B1CF6534DF1BB054D6C78551 /* libPods-iyubaDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iyubaDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB1EE87820484F4300BDE1EB /* UIViewController+toast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+toast.h"; sourceTree = "<group>"; };
 		BB1EE87920484F4300BDE1EB /* UIViewController+toast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+toast.m"; sourceTree = "<group>"; };
+		BB1EE87B2048569B00BDE1EB /* Api.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Api.h; sourceTree = "<group>"; };
 		BB968C8220478F1900BBA0B5 /* UIDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIDefine.h; sourceTree = "<group>"; };
 		BB968C8320478F7B00BBA0B5 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		BB968C882047A94300BBA0B5 /* UIColor+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extension.h"; sourceTree = "<group>"; };
@@ -294,6 +295,7 @@
 				BBF527D5204666BB00F7CDDC /* NetworkManager.m */,
 				BBF527DA204697C900F7CDDC /* HomeDataManager.h */,
 				BBF527DB204697C900F7CDDC /* HomeDataManager.m */,
+				BB1EE87B2048569B00BDE1EB /* Api.h */,
 			);
 			path = Store;
 			sourceTree = "<group>";

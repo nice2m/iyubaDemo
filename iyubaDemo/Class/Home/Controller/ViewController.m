@@ -27,7 +27,6 @@ static NSString * kHomeTableViewCellReuseId = @"HomeIndexCell";
 
 @interface ViewController ()
 
-
 /**
  顶部导航栏容器视图
  */
@@ -73,6 +72,8 @@ static NSString * kHomeTableViewCellReuseId = @"HomeIndexCell";
  MVCS Store 数据处理对象
  */
 @property (nonatomic, strong) HomeDataManager *dataManager;
+
+@property (nonatomic, assign) NSInteger currentParentId;
 
 @end
 
@@ -170,6 +171,8 @@ static NSString * kHomeTableViewCellReuseId = @"HomeIndexCell";
     } tabCellPressed:^(NSInteger tapIndex) {
         NSLog(@"tabCellPressed \t%ld",(long)tapIndex);
         [_homeTopView updateJumpLineTo:tapIndex];
+        self.currentParentId = tapIndex + 1;
+        [self refreshData];
     }];
     
     [_topContainerView addSubview:_homeTopView];
@@ -240,6 +243,7 @@ static NSString * kHomeTableViewCellReuseId = @"HomeIndexCell";
  */
 - (void)config{
     _dataManager = [[HomeDataManager alloc] initWith:self];
+    _currentParentId = 1;
     [self refreshData];
 }
 
@@ -250,14 +254,12 @@ static NSString * kHomeTableViewCellReuseId = @"HomeIndexCell";
 - (void)refreshData {
     __weak typeof (self) weakSelf = self;
     
-    [_dataManager fetchData:^(id responsObject, NSError *error) {
-        NSLog(@"responseObject:%@\n\nerror:%@\n\n",responsObject,error);
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [_tableView.mj_header endRefreshing];
-            [weakSelf.tableView reloadData];
-            [_homeScrollTopView updateImages:[_dataManager cycleImages]];
-        });
+    [_dataManager fetchDataWithParentID:weakSelf.currentParentId completeHandler:^(id responsObject, NSError *error) {
+        [_tableView.mj_header endRefreshing];
+        [weakSelf.tableView reloadData];
+        [_homeScrollTopView updateImages:[_dataManager cycleImagesWithParentID:weakSelf.currentParentId]];
     }];
+    
 }
 
 
@@ -272,7 +274,7 @@ static NSString * kHomeTableViewCellReuseId = @"HomeIndexCell";
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     HomeIndexCell * cell = [tableView dequeueReusableCellWithIdentifier:kHomeTableViewCellReuseId];
-    [cell configModel:self.dataManager.dataSource[indexPath.row]];
+    [cell configModel: [self.dataManager dataSourceWithParentId:self.currentParentId][indexPath.row]];
     if (indexPath.row == 0){
         [cell showTopImaginary];
     }
@@ -285,7 +287,7 @@ static NSString * kHomeTableViewCellReuseId = @"HomeIndexCell";
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.dataManager.dataSource.count;
+    return [self.dataManager dataSourceWithParentId:self.currentParentId].count;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
