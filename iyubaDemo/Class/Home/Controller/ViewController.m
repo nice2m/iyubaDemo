@@ -73,6 +73,9 @@ static NSString * kHomeTableViewCellReuseId = @"HomeIndexCell";
  */
 @property (nonatomic, strong) HomeDataManager *dataManager;
 
+/**
+ 数据cate 标记
+ */
 @property (nonatomic, assign) NSInteger currentParentId;
 
 @end
@@ -97,6 +100,33 @@ static NSString * kHomeTableViewCellReuseId = @"HomeIndexCell";
 #pragma mark - private
 
 
+- (void)jumpTencentAppCenter{
+    NSURL * url = [NSURL URLWithString:@"http://a.app.qq.com/o/simple.jsp?pkgname=com.iyuba.bbcinone"];
+    if ([[UIApplication sharedApplication] canOpenURL:url]) {
+        [[UIApplication sharedApplication] openURL:url];
+    }
+}
+
+/**
+ alert 提示，并且执行操作
+
+ @param msg alert 的信息
+ @param complete 确认执行的操作
+ */
+- (void)showAlert:(NSString *)msg completBlock:(void(^)(void))complete{
+    UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:@"提示" message:msg preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction * cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"cancled");
+    }];
+    UIAlertAction * confirm = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        complete();
+    }];
+    [alertVC addAction:confirm];
+    [alertVC addAction:cancel];
+    [self presentViewController:alertVC animated:true completion:nil];
+
+}
+
 /**
  配置布局视图
  */
@@ -112,7 +142,7 @@ static NSString * kHomeTableViewCellReuseId = @"HomeIndexCell";
     
     _bottomContainerView = [UIView new];
     [self.view addSubview:_bottomContainerView];
-
+    
     // 布局tableview
     _tableView = [[UITableView alloc] init];
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -166,8 +196,8 @@ static NSString * kHomeTableViewCellReuseId = @"HomeIndexCell";
     CGSize tabCellSize = CGSizeMake(contentWidht / titles.count, 44.0);
     _homeTopView = [[HomeTopView alloc] initWithFrame:CGRectZero titles:titles topBgImg:topBgImg tabCellSize:tabCellSize homeBtnPressed:^{
         NSLog(@"homeBtnPressed");
-        [self showToast:@"首页按钮点击"];
-
+        [self ex_showToast:@"首页按钮点击"];
+        
     } tabCellPressed:^(NSInteger tapIndex) {
         NSLog(@"tabCellPressed \t%ld",(long)tapIndex);
         [_homeTopView updateJumpLineTo:tapIndex];
@@ -183,8 +213,8 @@ static NSString * kHomeTableViewCellReuseId = @"HomeIndexCell";
     // 配置cyclePageView
     _homeScrollTopView = [[HomeScrollPageView alloc] initWithFrame:CGRectZero imagesUrlArray:@[] imgOnTapBlock:^(NSInteger index) {
         NSLog(@"HomeScrollPageView imgOnTapBlock :%ld ",index);
-        [self showToast:[NSString stringWithFormat:@"点击第%ld张",index + 1]];
-
+        [self ex_showToast:[NSString stringWithFormat:@"点击第%ld张",index + 1]];
+        
     }];
     [_scrollContainerView addSubview:_homeScrollTopView];
     [_homeScrollTopView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -193,48 +223,23 @@ static NSString * kHomeTableViewCellReuseId = @"HomeIndexCell";
     
     // 配置footer
     _homeFooterView = [[HomeFooterView alloc] initWithFrame:CGRectZero lastBtnBlock:^{
-        [self showToast:@"上一页点击"];
-
+        [self ex_showToast:@"上一页点击"];
+        
         NSLog(@"lastBtnBlock");
     } nextBtnBlock:^{
-
+        
         NSLog(@"nextBtnBlock");
-        [self showToast:@"下一页点击"];
+        [self ex_showToast:@"下一页点击"];
         
     } bottomImgBlock:^{
         [self showAlert:@"跳转到腾讯应用市场？" completBlock:^{
-            NSURL * url = [NSURL URLWithString:@"http://a.app.qq.com/o/simple.jsp?pkgname=com.iyuba.bbcinone"];
-            if ([[UIApplication sharedApplication] canOpenURL:url]) {
-                [[UIApplication sharedApplication] openURL:url];
-            }
+            [self jumpTencentAppCenter];
         }];
     }];
     [_bottomContainerView addSubview: _homeFooterView];
     [_homeFooterView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(_bottomContainerView);
     }];
-    
-}
-
-
-/**
- alert 提示，并且执行操作
-
- @param msg alert 的信息
- @param complete 确认执行的操作
- */
-- (void)showAlert:(NSString *)msg completBlock:(void(^)(void))complete{
-    UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:@"提示" message:msg preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction * cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        NSLog(@"cancled");
-    }];
-    UIAlertAction * confirm = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        complete();
-    }];
-    [alertVC addAction:confirm];
-    [alertVC addAction:cancel];
-    [self presentViewController:alertVC animated:true completion:nil];
-
 }
 
 
@@ -252,17 +257,20 @@ static NSString * kHomeTableViewCellReuseId = @"HomeIndexCell";
  请求刷新网络数据
  */
 - (void)refreshData {
+    
+    [self ex_showHud:@"加载中"];
     __weak typeof (self) weakSelf = self;
-    
     [_dataManager fetchDataWithParentID:weakSelf.currentParentId completeHandler:^(id responsObject, NSError *error) {
-        [_tableView.mj_header endRefreshing];
+        [weakSelf ex_hideHud];
+        [weakSelf.tableView.mj_header endRefreshing];
+        if (error != nil){
+            [weakSelf ex_showToast:@"加载失败"];
+            return ;
+        }
         [weakSelf.tableView reloadData];
-        [_homeScrollTopView updateImages:[_dataManager cycleImagesWithParentID:weakSelf.currentParentId]];
+        [weakSelf.homeScrollTopView updateImages:[weakSelf.dataManager cycleImagesWithParentID:weakSelf.currentParentId]];
     }];
-    
 }
-
-
 @end
 
 

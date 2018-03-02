@@ -12,7 +12,6 @@ target 'iyubaDemo' do
   pod 'Masonry'
   pod 'MBProgressHUD', '~> 1.1.0'
   pod 'SDWebImage', '~> 4.0'
-  pod 'Colours'
   pod 'MJRefresh'
   target 'iyubaDemoTests' do
     inherit! :search_paths

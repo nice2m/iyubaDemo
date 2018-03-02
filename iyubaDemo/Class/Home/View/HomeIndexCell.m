@@ -31,15 +31,15 @@
 }
 
 - (void)configModel:(BBCTitleModel *)model{
-    NSURL * imgURL = [NSURL URLWithString:model.Pic];
+    NSURL * imgURL = [NSURL URLWithString:model.pic];
     [self.leftImgView sd_setImageWithURL:imgURL placeholderImage:[UIImage imageNamed:@"homeScrollPagePlaceHolder"] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
         [UIView animateWithDuration:0.2 animations:^{
             self.leftImgView.alpha = 1.0;
         }];
     }];
-    self.titleLabel.text = model.Title;
-    NSString * detailDate = [model.CreatTime componentsSeparatedByString:@" "].firstObject;
-    self.readDetailDesLabel.text = [NSString stringWithFormat:@"%@ | 阅读：%@",detailDate,model.ReadCount];
+    self.titleLabel.text = model.title_cn;
+    NSString * detailDate = [model.creatTime componentsSeparatedByString:@" "].firstObject;
+    self.readDetailDesLabel.text = [NSString stringWithFormat:@"%@ | 阅读：%@",detailDate,model.readCount];
 }
 
 - (void)showTopImaginary{

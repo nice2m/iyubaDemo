@@ -167,6 +167,15 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		BBF37ECE2048DDB3008E4DFB /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				BBF527D4204666BB00F7CDDC /* NetworkManager.h */,
+				BBF527D5204666BB00F7CDDC /* NetworkManager.m */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		BBF5278720463A8C00F7CDDC = {
 			isa = PBXGroup;
 			children = (
@@ -250,6 +259,7 @@
 		BBF527C820465A2900F7CDDC /* Expand */ = {
 			isa = PBXGroup;
 			children = (
+				BBF37ECE2048DDB3008E4DFB /* Network */,
 				BB968C842047A90A00BBA0B5 /* Category */,
 				BB968C8220478F1900BBA0B5 /* UIDefine.h */,
 				BB968C8320478F7B00BBA0B5 /* PrefixHeader.pch */,
@@ -291,8 +301,6 @@
 		BBF527CF20465A9A00F7CDDC /* Store */ = {
 			isa = PBXGroup;
 			children = (
-				BBF527D4204666BB00F7CDDC /* NetworkManager.h */,
-				BBF527D5204666BB00F7CDDC /* NetworkManager.m */,
 				BBF527DA204697C900F7CDDC /* HomeDataManager.h */,
 				BBF527DB204697C900F7CDDC /* HomeDataManager.m */,
 				BB1EE87B2048569B00BDE1EB /* Api.h */,

@@ -16,7 +16,6 @@
 - (instancetype)initWith:(UIViewController *)currentController;
 
 
-- (void)fetchData:(NetworkRequestCompleteHandler)completeHandler;
 
 - (void)fetchDataWithParentID:(NSInteger)parentID completeHandler:(NetworkRequestCompleteHandler)completeHandler;
 - (NSArray<BBCTitleModel *> *)dataSourceWithParentId:(NSInteger)parentID;

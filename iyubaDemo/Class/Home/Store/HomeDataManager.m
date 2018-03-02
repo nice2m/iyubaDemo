@@ -38,58 +38,23 @@
 }
 
 - (void)fetchDataWithParentID:(NSInteger)parentID completeHandler:(NetworkRequestCompleteHandler)completeHandler{
-    MBProgressHUD * hud = [MBProgressHUD showHUDAddedTo:self.currentController.view animated:true];
-    hud.mode = MBProgressHUDModeIndeterminate;
-    hud.label.text = @"加载中";
-    [hud showAnimated:true];
-    ;
     [[NetworkManager sharedManager] postUrl:kHomeDataApiWithParentID(parentID) parameter:@{} completeHandler:^(id responsObject, NSError *error) {
-        NSLog(@"%@",responsObject);
-        [hud hideAnimated:true];
+        NSLog(@"%@\t%@",responsObject,error);
         
         if (responsObject != nil) {
             [self parseXMLwithData:responsObject parentID:parentID];
-        }
-        else {
-            MBProgressHUD * hud = [MBProgressHUD showHUDAddedTo:self.currentController.view animated:true];
-            hud.mode = MBProgressHUDModeText;
-            hud.label.text = @"加载失败，请重试";
-            [hud hideAnimated:true afterDelay:0.85];
         }
         completeHandler ? completeHandler(responsObject,error) : nil;
     }];
 }
 
-- (void)fetchData:(NetworkRequestCompleteHandler)completeHandler {
-    MBProgressHUD * hud = [MBProgressHUD showHUDAddedTo:self.currentController.view animated:true];
-    hud.mode = MBProgressHUDModeIndeterminate;
-    hud.label.text = @"加载中";
-    [hud showAnimated:true];
-    ;
-    [[NetworkManager sharedManager] postUrl:kHomeDataApiWithParentID((long)1) parameter:@{} completeHandler:^(id responsObject, NSError *error) {
-        NSLog(@"%@",responsObject);
-        [hud hideAnimated:true];
-        
-        if (responsObject != nil) {
-            [self parseXMLwithData:responsObject parentID:(long)1];
-        }
-        else {
-            MBProgressHUD * hud = [MBProgressHUD showHUDAddedTo:self.currentController.view animated:true];
-            hud.mode = MBProgressHUDModeText;
-            hud.label.text = @"加载失败，请重试";
-            [hud hideAnimated:true afterDelay:0.85];
-        }
-        completeHandler ? completeHandler(responsObject,error) : nil;
-    }];
-    
-}
 
 - (NSArray <NSString *>*)cycleImagesWithParentID:(NSInteger)parentID {
     NSArray * models = [self dataSourceWithParentId:parentID];
     
     NSMutableArray * rs = [NSMutableArray array];
     for (BBCTitleModel * model in models) {
-        [rs addObject:model.Pic];
+        [rs addObject:model.pic];
     }
     return rs;
 }

@@ -68,7 +68,7 @@ CGFloat kHomeTopViewCellSpacing = 8.0;
     
     CGSize nowSize = self.lineJumpView.frame.size;
     CGFloat newOriginX = index * self.tabCellSize.width ;
-    if (index > 1){
+    if (index >= 1){
         newOriginX += index * kHomeTopViewCellSpacing;
     }
     

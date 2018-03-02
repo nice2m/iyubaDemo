@@ -27,29 +27,57 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+
+/**
+ 首页数据展示模型；
+ */
 @interface BBCTitleModel : NSObject
 
-@property (nonatomic, copy) NSString * BbcId;
 
-@property (nonatomic, copy) NSString * Title;
+@property (nonatomic, copy) NSString * bbcId;
 
-@property (nonatomic, copy) NSString * DescCn;
+/**
+ 文章标题（英文）
+ */
+@property (nonatomic, copy) NSString * title;
 
-@property (nonatomic, copy) NSString * Category;
+/**
+ 文章标题（中文）
 
-@property (nonatomic, copy) NSString * Sound;
+ */
+@property (nonatomic, copy) NSString * title_cn;
+@property (nonatomic, copy) NSString * descCn;
 
-@property (nonatomic, copy) NSString * Url;
+/**
+ 所属类别
+ */
+@property (nonatomic, copy) NSString * category;
 
-@property (nonatomic, copy) NSString * Pic;
+/**
+ 声音文件ID
+ */
+@property (nonatomic, copy) NSString * sound;
 
-@property (nonatomic, copy) NSString * CreatTime;
+@property (nonatomic, copy) NSString * url;
 
-@property (nonatomic, copy) NSString * PublishTime;
+/**
+ 图片URL 地址
+ */
+@property (nonatomic, copy) NSString * pic;
 
-@property (nonatomic, copy) NSString * ReadCount;
+/**
+ 文章创建日期
+ */
+@property (nonatomic, copy) NSString * creatTime;
 
-@property (nonatomic, copy) NSString * HotFlg;
+@property (nonatomic, copy) NSString * publishTime;
+
+/**
+ 文章阅读数
+ */
+@property (nonatomic, copy) NSString * readCount;
+
+@property (nonatomic, copy) NSString * hotFlg;
 
 //
 @end

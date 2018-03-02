@@ -7,9 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MBProgressHUD.h>
+
 
 @interface UIViewController (toast)
 
-- (void)showToast:(NSString *)text;
+@property (nonatomic, strong) MBProgressHUD * ex_HUD;
+
+
+- (void)ex_showToast:(NSString *)text;
+
+- (void)ex_showHud:(NSString *)text;
+- (void)ex_hideHud;
 
 @end
