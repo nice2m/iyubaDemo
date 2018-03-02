@@ -5,14 +5,16 @@ target 'iyubaDemo' do
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
   # use_frameworks!
   # Pods for iyubaDemo
+  
   pod 'AFNetworking', '~> 3.0'
   pod 'YYModel'
-  pod 'SDCycleScrollView','~> 1.75'
   pod 'Ono'
+  
   pod 'Masonry'
+  pod 'MJRefresh'
+  pod 'SDCycleScrollView','~> 1.75'
   pod 'MBProgressHUD', '~> 1.1.0'
   pod 'SDWebImage', '~> 4.0'
-  pod 'MJRefresh'
   target 'iyubaDemoTests' do
     inherit! :search_paths
     # Pods for testing
