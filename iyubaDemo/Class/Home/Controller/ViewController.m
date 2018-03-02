@@ -253,7 +253,7 @@ static NSString * kHomeTableViewCellReuseId = @"HomeIndexCell";
  基本配置
  */
 - (void)config{
-    _dataManager = [[HomeDataManager alloc] initWith:self];
+    _dataManager = [[HomeDataManager alloc] init];
     _currentParentId = 1;
     [self refreshData];
 }

@@ -14,7 +14,6 @@
 @interface HomeDataManager()
 
 @property (nonatomic, assign) NSInteger currentPageNo;
-@property (nonatomic, weak) UIViewController *currentController;
 
 @property (nonatomic, strong)NSMutableArray<BBCTitleModel *> * firstDataSource;
 @property (nonatomic, strong)NSMutableArray<BBCTitleModel *> * secondDataSource;
@@ -30,9 +29,8 @@
 
 #pragma mark - interface
 
-- (instancetype)initWith:(UIViewController *)currentController{
+- (instancetype)init{
     if (self = [super init]){
-        self.currentController = currentController;
     }
     return  self;
 }

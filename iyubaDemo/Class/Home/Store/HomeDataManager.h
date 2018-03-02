@@ -13,7 +13,7 @@
 
 @interface HomeDataManager : NSObject
 
-- (instancetype)initWith:(UIViewController *)currentController;
+- (instancetype)init;
 
 
 
