@@ -12,6 +12,7 @@
 		5FB48A3E2046FDFB00DE29E7 /* HomeIndexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB48A3C2046FDFB00DE29E7 /* HomeIndexCell.m */; };
 		5FB48A3F2046FDFB00DE29E7 /* HomeIndexCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FB48A3D2046FDFB00DE29E7 /* HomeIndexCell.xib */; };
 		5FB48A422047062500DE29E7 /* HomeScrollPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB48A412047062500DE29E7 /* HomeScrollPageView.m */; };
+		5FB48A4520498C8200DE29E7 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB48A4420498C8200DE29E7 /* BaseModel.m */; };
 		B3AC154EC2F07D96DDBE1439 /* libPods-iyubaDemoUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D18570C9D6C8B2321E0D3D62 /* libPods-iyubaDemoUITests.a */; };
 		BB1EE87A20484F4300BDE1EB /* UIViewController+toast.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1EE87920484F4300BDE1EB /* UIViewController+toast.m */; };
 		BB968C8A2047A94300BBA0B5 /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = BB968C892047A94300BBA0B5 /* UIColor+Extension.m */; };
@@ -58,6 +59,8 @@
 		5FB48A3D2046FDFB00DE29E7 /* HomeIndexCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeIndexCell.xib; sourceTree = "<group>"; };
 		5FB48A402047062500DE29E7 /* HomeScrollPageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeScrollPageView.h; sourceTree = "<group>"; };
 		5FB48A412047062500DE29E7 /* HomeScrollPageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeScrollPageView.m; sourceTree = "<group>"; };
+		5FB48A4320498C8200DE29E7 /* BaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
+		5FB48A4420498C8200DE29E7 /* BaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		9C6BC6234801F59E9A671C63 /* Pods-iyubaDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iyubaDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iyubaDemo/Pods-iyubaDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		AD3A142A20D925B2F655AF0A /* Pods-iyubaDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iyubaDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-iyubaDemo/Pods-iyubaDemo.release.xcconfig"; sourceTree = "<group>"; };
 		B1CF6534DF1BB054D6C78551 /* libPods-iyubaDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iyubaDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -172,6 +175,8 @@
 			children = (
 				BBF527D4204666BB00F7CDDC /* NetworkManager.h */,
 				BBF527D5204666BB00F7CDDC /* NetworkManager.m */,
+				5FB48A4320498C8200DE29E7 /* BaseModel.h */,
+				5FB48A4420498C8200DE29E7 /* BaseModel.m */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -624,6 +629,7 @@
 				BBF527D6204666BB00F7CDDC /* NetworkManager.m in Sources */,
 				BBF527D320465A9A00F7CDDC /* ViewController.m in Sources */,
 				BBF527D220465A9A00F7CDDC /* AppDelegate.m in Sources */,
+				5FB48A4520498C8200DE29E7 /* BaseModel.m in Sources */,
 				BBF527E720469D0400F7CDDC /* HomeTopViewCollectionTabCellModel.m in Sources */,
 				BB1EE87A20484F4300BDE1EB /* UIViewController+toast.m in Sources */,
 				BBF527E320469C0900F7CDDC /* HomeTopViewCollectionTabCell.m in Sources */,

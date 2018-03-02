@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <YYModel/YYModel.h>
 
 
 /*
@@ -31,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  首页数据展示模型；
  */
-@interface BBCTitleModel : NSObject
+@interface BBCTitleModel : BaseModel
 
 
 @property (nonatomic, copy) NSString * bbcId;

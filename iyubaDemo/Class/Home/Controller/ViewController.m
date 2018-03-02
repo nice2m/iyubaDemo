@@ -282,7 +282,7 @@ static NSString * kHomeTableViewCellReuseId = @"HomeIndexCell";
 
 
 /**
- TableView  代理方法
+ UITableView  代理方法
  */
 @implementation ViewController(delegate)
 

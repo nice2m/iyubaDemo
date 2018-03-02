@@ -7,11 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <YYModel/YYModel.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HomeTopViewCollectionTabCellModel : NSObject
+@interface HomeTopViewCollectionTabCellModel : BaseModel
 
 /**
  标题字符
