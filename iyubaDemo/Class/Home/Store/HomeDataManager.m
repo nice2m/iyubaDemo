@@ -28,7 +28,7 @@
 @implementation HomeDataManager
 
 
-//MARK: - interface
+#pragma mark - interface
 
 - (instancetype)initWith:(UIViewController *)currentController{
     if (self = [super init]){
@@ -59,7 +59,7 @@
     return rs;
 }
 
-//MARK: - private
+#pragma mark - private
 - (void) parseXMLwithData:(NSData *)data parentID:(NSInteger)parentID{
     
     NSMutableArray * rsArr = nil;
@@ -117,6 +117,9 @@
             break;
     }
 }
+
+
+#pragma mark - lazy load
 
 - (NSMutableArray<BBCTitleModel *> *)firstDataSource{
     if (_firstDataSource == nil){

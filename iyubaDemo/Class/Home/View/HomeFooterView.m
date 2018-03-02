@@ -102,7 +102,7 @@
     
 }
 
-//MAKR: - event
+#pragma mark - event
 - (void)leftBtnPressed:(UIButton *)sender {
     self.lastBtnBlock ? self.lastBtnBlock() : nil;
 }

@@ -10,5 +10,6 @@
 #define Api_h
 
 #define kHomeDataApiWithParentID(parentID) [NSString stringWithFormat:@"http://apps.iyuba.com/minutes/titleNewApi.jsp?maxid=0&format=xml&type=android&parentID=%ld",parentID]
+#define kTencentAppCenterURL @"http://a.app.qq.com/o/simple.jsp?pkgname=com.iyuba.bbcinone"
 
 #endif /* Api_h */

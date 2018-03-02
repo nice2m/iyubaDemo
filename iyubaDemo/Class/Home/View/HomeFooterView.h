@@ -13,6 +13,15 @@ typedef void(^HomeFooterViewBtnPressedBlock)(void);
 @interface HomeFooterView : UIView
 
 
+/**
+ 初始化 Home Footer 控件
+
+ @param frame 该控件的frame
+ @param lastBtnBlock 上一页点击回调
+ @param nextBtnBlock 下一页点击回调
+ @param bottomImgBlock 底部图片按钮点击回调
+ @return “”
+ */
 - (instancetype)initWithFrame:(CGRect)frame lastBtnBlock:(HomeFooterViewBtnPressedBlock)lastBtnBlock nextBtnBlock:(HomeFooterViewBtnPressedBlock)nextBtnBlock bottomImgBlock:(HomeFooterViewBtnPressedBlock)bottomImgBlock;
 
 @end

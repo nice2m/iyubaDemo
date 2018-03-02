@@ -11,8 +11,8 @@
 #import "UIViewController+toast.h"
 
 #import "NetworkManager.h"
-#import "BBCTitleModel.h"
 #import "HomeDataManager.h"
+#import "BBCTitleModel.h"
 
 #import "ViewController.h"
 
@@ -100,8 +100,14 @@ static NSString * kHomeTableViewCellReuseId = @"HomeIndexCell";
 #pragma mark - private
 
 
-- (void)jumpTencentAppCenter{
-    NSURL * url = [NSURL URLWithString:@"http://a.app.qq.com/o/simple.jsp?pkgname=com.iyuba.bbcinone"];
+
+/**
+ 跳转应用外打开URL
+
+ @param urlString 要打开的URL地址
+ */
+- (void)openURL:(NSString *)urlString{
+    NSURL * url = [NSURL URLWithString:urlString];
     if ([[UIApplication sharedApplication] canOpenURL:url]) {
         [[UIApplication sharedApplication] openURL:url];
     }
@@ -233,7 +239,7 @@ static NSString * kHomeTableViewCellReuseId = @"HomeIndexCell";
         
     } bottomImgBlock:^{
         [self showAlert:@"跳转到腾讯应用市场？" completBlock:^{
-            [self jumpTencentAppCenter];
+            [self openURL:kTencentAppCenterURL];
         }];
     }];
     [_bottomContainerView addSubview: _homeFooterView];
@@ -295,6 +301,7 @@ static NSString * kHomeTableViewCellReuseId = @"HomeIndexCell";
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
     return [self.dataManager dataSourceWithParentId:self.currentParentId].count;
 }
 

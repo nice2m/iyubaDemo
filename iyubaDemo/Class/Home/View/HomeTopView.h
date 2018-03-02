@@ -15,6 +15,19 @@ extern CGFloat kHomeTopViewCellSpacing;
 
 @interface HomeTopView : UIView
 
+
+
+/**
+ 初始化Home topView
+
+ @param frame 该view 的frame
+ @param titles 标题数组
+ @param topBgImg 顶部视图左侧 logo 图片
+ @param tabCellSize 标题size
+ @param homeBtnPressed 顶部视图 home 按钮点击回调
+ @param tabCellPressed 标题点击回调
+ @return ""
+ */
 - (instancetype)initWithFrame:(CGRect)frame titles:(NSArray<NSString *>*)titles topBgImg:(UIImage *)topBgImg tabCellSize:(CGSize)tabCellSize homeBtnPressed:(HomeTopViewHomeBtnPressed)homeBtnPressed tabCellPressed:(HomeTopTabCellPressed)tabCellPressed;
 
 

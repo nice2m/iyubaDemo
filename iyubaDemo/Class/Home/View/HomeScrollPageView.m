@@ -39,7 +39,7 @@
 }
 
 
-//MARK: - private
+#pragma mark - private
 
 - (void)configUI {
     // 配置 上一张，下一张 按钮显示
@@ -88,7 +88,7 @@
 }
 
 
-//MARK: - event
+#pragma mark - event
 
 - (void)leftBtnPressed:(UIButton *)sender {
     NSInteger lastIndex = self.currentScrollPageIndex - 1;

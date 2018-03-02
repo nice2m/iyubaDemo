@@ -77,13 +77,13 @@ CGFloat kHomeTopViewCellSpacing = 8.0;
     }];
 }
 
-//MAKR: - event
+#pragma mark  - event
 - (void)homeBtnPressedAction:(UIButton *)sender{
     NSLog(@"%@",sender);
     self.homeBtnPressed ? self.homeBtnPressed() : nil;
 }
 
-//MARK: - private
+#pragma mark - private
 
 - (void)configUI {
     UIView * topContainerView = [[UIView alloc] init];
@@ -172,7 +172,7 @@ CGFloat kHomeTopViewCellSpacing = 8.0;
 
 @end
 
-// MARK: - UICollectionViewDelegate
+#pragma mark - UICollectionViewDelegate
 
 @implementation HomeTopView(HomeTopView_extension)
 

@@ -13,6 +13,15 @@ typedef void(^HomeScrollPageViewImgOnTapBlock)(NSInteger index);
 
 @interface HomeScrollPageView : UIView
 
+
+/**
+ 初始化Home scrollPage 控件；
+
+ @param frame 该控件的frame
+ @param imagesArray 该控件的图片Url 数组
+ @param imgOnTapBlock 图片点击回调
+ @return “”
+ */
 - (instancetype)initWithFrame:(CGRect)frame imagesUrlArray:(NSArray<NSString *>*)imagesArray imgOnTapBlock:(HomeScrollPageViewImgOnTapBlock)imgOnTapBlock;
 - (void)updateImages:(NSArray<NSString *>*)images;
 
