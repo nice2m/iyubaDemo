@@ -11,33 +11,43 @@
 # Uncomment the line if you want fastlane to automatically update itself
 update_fastlane
 
+# 选择xcode 环境
 xcversion(version: "9.2") # Selects Xcode 9.2
 xcode_select "/Applications/Xcode.app"
 
+# 默认打包平台
 default_platform(:ios)
 
 platform :ios do
-  desc "screen shot and give a device frame to it,finally upload to app store"
-    lane :screenshots_upload do
-    capture_screenshots
-    frame_screenshots(white: true)
-    get_certificates           # invokes cert
-    get_provisioning_profile   # invokes sigh    
-    build_app
-    upload_to_app_store
-  end
  
-  desc "screen shot only"
-    lane :screenshots do
+  desc "make screen shot and upload"
+    lane :screenshots_and_upload do
     capture_screenshots
+    upload_to_app_store
   end  
 
 
-  desc "build and upload"
-    lane :build_release do
+  desc "build and upload,no screenshots action"
+    lane :build_distribute do
     get_certificates           # invokes cert
     get_provisioning_profile   # invokes sigh
-    build_app
+    
+     # 内部版本号增加1
+    increment_version_number_in_plist
+    # 输出配置
+    #build_app(scheme: "MyApp")
+    gym(
+          #输出的ipa名称
+          output_name:"#{scheme}_#{get_build_number()}",
+          # 是否清空以前的编译信息 true：是
+          clean:true,
+          # 指定打包方式，Release 或者 Debug
+          configuration:"Release",
+          # 指定打包所使用的输出方式，目前支持app-store, package, ad-hoc, enterprise, development
+          export_method:"app-store",
+          # 指定输出文件夹
+          output_directory:"./fastlane/build",
+        )
     upload_to_app_store  
   end
 end
