@@ -8,8 +8,31 @@
 
 #import "BaseModel.h"
 #import <objc/runtime.h>
+#import <objc/message.h>
 
 @implementation BaseModel
+
+- (id)forwardingTargetForSelector:(SEL)aSelector{
+    return self;
+}
+
+- (void)forwardInvocation:(NSInvocation *)anInvocation{
+    
+}
+
++ (IMP)instanceMethodForSelector:(SEL)aSelector{
+    
+    SEL aSel = NSSelectorFromString(@"");
+    Method method = class_getInstanceMethod(self, @selector(viewDidLoad));
+    
+    return method;
+}
+
++ (void)siwzz_Test{
+    
+}
+
+
 
 - (NSString *)description{
     

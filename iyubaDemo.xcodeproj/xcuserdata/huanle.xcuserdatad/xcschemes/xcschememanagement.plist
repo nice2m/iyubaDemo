@@ -9,6 +9,34 @@
 			<key>orderHint</key>
 			<integer>11</integer>
 		</dict>
+		<key>iyubaDemoUITestsMy.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>12</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>BB5A5A832068A4DE00E5A9E2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BBF5278F20463A8D00F7CDDC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BBF527A720463A8D00F7CDDC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BBF527B220463A8D00F7CDDC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 	</dict>
 </dict>
 </plist>

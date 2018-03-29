@@ -1,0 +1,8 @@
+app_identifier("nice2meet.iyubaDemo.com") # The bundle identifier of your app
+apple_id("suzhixu@vcredit.com") # Your Apple email address
+
+itc_team_id("118670374") # iTunes Connect Team ID
+team_id("TKA5QRRRJ4") # Developer Portal Team ID
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile

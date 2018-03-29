@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="fastlane.lanes">
+    
+    
+    
+      
+      <testcase classname="fastlane.lanes" name="0: update_fastlane" time="7.740397">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="1: xcversion" time="2.847596">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="2: xcode_select" time="0.001077">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="3: default_platform" time="0.000692">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="4: get_certificates" time="5.098661">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="5: get_provisioning_profile" time="6.106111">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="6: build_app" time="60.494959">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="7: upload_to_app_store" time="107.711945">
+        
+      </testcase>
+    
+  </testsuite>
+</testsuites>
