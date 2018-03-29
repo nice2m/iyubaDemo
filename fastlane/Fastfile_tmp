@@ -1,0 +1,65 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+
+
+
+# Uncomment the line if you want fastlane to automatically update itself
+update_fastlane
+
+xcversion(version: "9.2") # Selects Xcode 9.2
+xcode_select "/Applications/Xcode.app"
+
+default_platform(:ios)
+
+platform :ios do
+  desc "Push a new beta build to TestFlight"
+  lane :beta do
+    build_app(workspace: "iyubaDemo.xcworkspace", scheme: "iyubaDemo")
+    upload_to_testflight
+  end
+
+  desc "Push a new beta build to AppStore"
+  lane :release do
+
+    build_app(
+      export_method:"app-store",
+      export_options: {
+        provisioningProfiles: {
+        "nice2meet.iyubaDemo.com" => "nice2meetiyubaDemocom_AppStore.mobileprovision"
+  	}
+      }
+    )
+
+    sync_code_signing(type: "app-store")
+    build_app(workspace: "iyubaDemo.xcworkspace", scheme: "iyubaDemo")
+    upload_to_app_store
+    slack(message: "Succcessfully uploaded a new App Store build")
+  end
+
+  desc "screen shot and give a device frame to it,finally upload to app store"
+    lane :screenshots do
+    capture_screenshots
+    frame_screenshots(white: true)
+    upload_to_app_store
+  end
+  
+  desc "upload screenshot to appstore only"
+    lane :upload_screenshots_only do
+    upload_to_app_store
+  end
+  
+  desc "screenshots only"
+    lane :screenshots_only do 
+    capture_screenshots
+    frame_screenshots(white: false)
+  end  
+
+
+end
+
+

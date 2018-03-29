@@ -15,6 +15,8 @@
 		5FB48A4520498C8200DE29E7 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB48A4420498C8200DE29E7 /* BaseModel.m */; };
 		B3AC154EC2F07D96DDBE1439 /* libPods-iyubaDemoUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D18570C9D6C8B2321E0D3D62 /* libPods-iyubaDemoUITests.a */; };
 		BB1EE87A20484F4300BDE1EB /* UIViewController+toast.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1EE87920484F4300BDE1EB /* UIViewController+toast.m */; };
+		BB5A5A872068A4DE00E5A9E2 /* iyubaDemoUITestsMy.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5A5A862068A4DE00E5A9E2 /* iyubaDemoUITestsMy.m */; };
+		BB5A5A902068A53C00E5A9E2 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5A5A8F2068A53C00E5A9E2 /* SnapshotHelper.swift */; };
 		BB968C8A2047A94300BBA0B5 /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = BB968C892047A94300BBA0B5 /* UIColor+Extension.m */; };
 		BB968C8D2047C2A200BBA0B5 /* HomeFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB968C8C2047C2A200BBA0B5 /* HomeFooterView.m */; };
 		BBF5279B20463A8D00F7CDDC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBF5279920463A8D00F7CDDC /* Main.storyboard */; };
@@ -22,7 +24,6 @@
 		BBF527A020463A8D00F7CDDC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBF5279E20463A8D00F7CDDC /* LaunchScreen.storyboard */; };
 		BBF527A320463A8D00F7CDDC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF527A220463A8D00F7CDDC /* main.m */; };
 		BBF527AD20463A8D00F7CDDC /* iyubaDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF527AC20463A8D00F7CDDC /* iyubaDemoTests.m */; };
-		BBF527B820463A8D00F7CDDC /* iyubaDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF527B720463A8D00F7CDDC /* iyubaDemoUITests.m */; };
 		BBF527D220465A9A00F7CDDC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF527C920465A9A00F7CDDC /* AppDelegate.m */; };
 		BBF527D320465A9A00F7CDDC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF527CD20465A9A00F7CDDC /* ViewController.m */; };
 		BBF527D6204666BB00F7CDDC /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF527D5204666BB00F7CDDC /* NetworkManager.m */; };
@@ -35,6 +36,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		BB5A5A892068A4DE00E5A9E2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BBF5278820463A8C00F7CDDC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BBF5278F20463A8D00F7CDDC;
+			remoteInfo = iyubaDemo;
+		};
 		BBF527A920463A8D00F7CDDC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BBF5278820463A8C00F7CDDC /* Project object */;
@@ -67,6 +75,11 @@
 		BB1EE87820484F4300BDE1EB /* UIViewController+toast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+toast.h"; sourceTree = "<group>"; };
 		BB1EE87920484F4300BDE1EB /* UIViewController+toast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+toast.m"; sourceTree = "<group>"; };
 		BB1EE87B2048569B00BDE1EB /* Api.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Api.h; sourceTree = "<group>"; };
+		BB5A5A842068A4DE00E5A9E2 /* iyubaDemoUITestsMy.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iyubaDemoUITestsMy.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB5A5A862068A4DE00E5A9E2 /* iyubaDemoUITestsMy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iyubaDemoUITestsMy.m; sourceTree = "<group>"; };
+		BB5A5A882068A4DE00E5A9E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB5A5A8E2068A53B00E5A9E2 /* iyubaDemoUITestsMy-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iyubaDemoUITestsMy-Bridging-Header.h"; sourceTree = "<group>"; };
+		BB5A5A8F2068A53C00E5A9E2 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		BB968C8220478F1900BBA0B5 /* UIDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIDefine.h; sourceTree = "<group>"; };
 		BB968C8320478F7B00BBA0B5 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		BB968C882047A94300BBA0B5 /* UIColor+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extension.h"; sourceTree = "<group>"; };
@@ -83,8 +96,6 @@
 		BBF527AC20463A8D00F7CDDC /* iyubaDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iyubaDemoTests.m; sourceTree = "<group>"; };
 		BBF527AE20463A8D00F7CDDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BBF527B320463A8D00F7CDDC /* iyubaDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iyubaDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BBF527B720463A8D00F7CDDC /* iyubaDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iyubaDemoUITests.m; sourceTree = "<group>"; };
-		BBF527B920463A8E00F7CDDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BBF527C920465A9A00F7CDDC /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		BBF527CC20465A9A00F7CDDC /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		BBF527CD20465A9A00F7CDDC /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
@@ -109,6 +120,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		BB5A5A812068A4DE00E5A9E2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BBF5278D20463A8D00F7CDDC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -159,6 +177,17 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		BB5A5A852068A4DE00E5A9E2 /* iyubaDemoUITestsMy */ = {
+			isa = PBXGroup;
+			children = (
+				BB5A5A8F2068A53C00E5A9E2 /* SnapshotHelper.swift */,
+				BB5A5A862068A4DE00E5A9E2 /* iyubaDemoUITestsMy.m */,
+				BB5A5A882068A4DE00E5A9E2 /* Info.plist */,
+				BB5A5A8E2068A53B00E5A9E2 /* iyubaDemoUITestsMy-Bridging-Header.h */,
+			);
+			path = iyubaDemoUITestsMy;
+			sourceTree = "<group>";
+		};
 		BB968C842047A90A00BBA0B5 /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,7 +215,7 @@
 			children = (
 				BBF5279220463A8D00F7CDDC /* iyubaDemo */,
 				BBF527AB20463A8D00F7CDDC /* iyubaDemoTests */,
-				BBF527B620463A8D00F7CDDC /* iyubaDemoUITests */,
+				BB5A5A852068A4DE00E5A9E2 /* iyubaDemoUITestsMy */,
 				BBF5279120463A8D00F7CDDC /* Products */,
 				ADE0F94173721BFD2813CE12 /* Pods */,
 				6FEE56824F6664F1B98F9A55 /* Frameworks */,
@@ -199,6 +228,7 @@
 				BBF5279020463A8D00F7CDDC /* iyubaDemo.app */,
 				BBF527A820463A8D00F7CDDC /* iyubaDemoTests.xctest */,
 				BBF527B320463A8D00F7CDDC /* iyubaDemoUITests.xctest */,
+				BB5A5A842068A4DE00E5A9E2 /* iyubaDemoUITestsMy.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -221,15 +251,6 @@
 				BBF527AE20463A8D00F7CDDC /* Info.plist */,
 			);
 			path = iyubaDemoTests;
-			sourceTree = "<group>";
-		};
-		BBF527B620463A8D00F7CDDC /* iyubaDemoUITests */ = {
-			isa = PBXGroup;
-			children = (
-				BBF527B720463A8D00F7CDDC /* iyubaDemoUITests.m */,
-				BBF527B920463A8E00F7CDDC /* Info.plist */,
-			);
-			path = iyubaDemoUITests;
 			sourceTree = "<group>";
 		};
 		BBF527C520465A1400F7CDDC /* Class */ = {
@@ -335,6 +356,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		BB5A5A832068A4DE00E5A9E2 /* iyubaDemoUITestsMy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BB5A5A8B2068A4DE00E5A9E2 /* Build configuration list for PBXNativeTarget "iyubaDemoUITestsMy" */;
+			buildPhases = (
+				BB5A5A802068A4DE00E5A9E2 /* Sources */,
+				BB5A5A812068A4DE00E5A9E2 /* Frameworks */,
+				BB5A5A822068A4DE00E5A9E2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BB5A5A8A2068A4DE00E5A9E2 /* PBXTargetDependency */,
+			);
+			name = iyubaDemoUITestsMy;
+			productName = iyubaDemoUITestsMy;
+			productReference = BB5A5A842068A4DE00E5A9E2 /* iyubaDemoUITestsMy.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		BBF5278F20463A8D00F7CDDC /* iyubaDemo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BBF527BC20463A8E00F7CDDC /* Build configuration list for PBXNativeTarget "iyubaDemo" */;
@@ -406,6 +445,12 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "nice2meet-demo";
 				TargetAttributes = {
+					BB5A5A832068A4DE00E5A9E2 = {
+						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
+						ProvisioningStyle = Automatic;
+						TestTargetID = BBF5278F20463A8D00F7CDDC;
+					};
 					BBF5278F20463A8D00F7CDDC = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
@@ -438,11 +483,19 @@
 				BBF5278F20463A8D00F7CDDC /* iyubaDemo */,
 				BBF527A720463A8D00F7CDDC /* iyubaDemoTests */,
 				BBF527B220463A8D00F7CDDC /* iyubaDemoUITests */,
+				BB5A5A832068A4DE00E5A9E2 /* iyubaDemoUITestsMy */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		BB5A5A822068A4DE00E5A9E2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BBF5278E20463A8D00F7CDDC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -622,6 +675,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		BB5A5A802068A4DE00E5A9E2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB5A5A872068A4DE00E5A9E2 /* iyubaDemoUITestsMy.m in Sources */,
+				BB5A5A902068A53C00E5A9E2 /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BBF5278C20463A8D00F7CDDC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -656,13 +718,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BBF527B820463A8D00F7CDDC /* iyubaDemoUITests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		BB5A5A8A2068A4DE00E5A9E2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BBF5278F20463A8D00F7CDDC /* iyubaDemo */;
+			targetProxy = BB5A5A892068A4DE00E5A9E2 /* PBXContainerItemProxy */;
+		};
 		BBF527AA20463A8D00F7CDDC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = BBF5278F20463A8D00F7CDDC /* iyubaDemo */;
@@ -695,6 +761,41 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		BB5A5A8C2068A4DE00E5A9E2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TKA5QRRRJ4;
+				INFOPLIST_FILE = iyubaDemoUITestsMy/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = nice2meet.iyubaDemoUITestsMy;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "iyubaDemoUITestsMy/iyubaDemoUITestsMy-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = iyubaDemo;
+			};
+			name = Debug;
+		};
+		BB5A5A8D2068A4DE00E5A9E2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TKA5QRRRJ4;
+				INFOPLIST_FILE = iyubaDemoUITestsMy/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = nice2meet.iyubaDemoUITestsMy;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "iyubaDemoUITestsMy/iyubaDemoUITestsMy-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = iyubaDemo;
+			};
+			name = Release;
+		};
 		BBF527BA20463A8E00F7CDDC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -724,7 +825,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -747,6 +848,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -779,7 +881,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -795,6 +897,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 4.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -804,6 +907,7 @@
 			baseConfigurationReference = 9C6BC6234801F59E9A671C63 /* Pods-iyubaDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TKA5QRRRJ4;
@@ -814,7 +918,9 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nice2meet.iyubaDemo.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -824,6 +930,7 @@
 			baseConfigurationReference = AD3A142A20D925B2F655AF0A /* Pods-iyubaDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TKA5QRRRJ4;
@@ -834,7 +941,9 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nice2meet.iyubaDemo.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -845,7 +954,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YWEH5GVC2C;
+				DEVELOPMENT_TEAM = TKA5QRRRJ4;
 				INFOPLIST_FILE = iyubaDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nice2meet.iyubaDemoTests;
@@ -861,7 +970,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YWEH5GVC2C;
+				DEVELOPMENT_TEAM = TKA5QRRRJ4;
 				INFOPLIST_FILE = iyubaDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nice2meet.iyubaDemoTests;
@@ -876,7 +985,7 @@
 			baseConfigurationReference = DA6019FBFF90A66184DAC93E /* Pods-iyubaDemoUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YWEH5GVC2C;
+				DEVELOPMENT_TEAM = TKA5QRRRJ4;
 				INFOPLIST_FILE = iyubaDemoUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nice2meet.iyubaDemoUITests;
@@ -891,7 +1000,7 @@
 			baseConfigurationReference = CF3E75CA2B593A07D9D85204 /* Pods-iyubaDemoUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YWEH5GVC2C;
+				DEVELOPMENT_TEAM = TKA5QRRRJ4;
 				INFOPLIST_FILE = iyubaDemoUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nice2meet.iyubaDemoUITests;
@@ -904,6 +1013,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		BB5A5A8B2068A4DE00E5A9E2 /* Build configuration list for PBXNativeTarget "iyubaDemoUITestsMy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB5A5A8C2068A4DE00E5A9E2 /* Debug */,
+				BB5A5A8D2068A4DE00E5A9E2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		BBF5278B20463A8C00F7CDDC /* Build configuration list for PBXProject "iyubaDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
